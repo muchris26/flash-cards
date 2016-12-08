@@ -39,7 +39,7 @@ var timing = 250;
     }
 
     generateQuestion();
-    $('#feedback').hide();
+    // $('#feedback').hide();
 
     $('#clear').click(function() {
 

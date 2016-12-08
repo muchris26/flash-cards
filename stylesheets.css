@@ -8,40 +8,32 @@ h1 {
 }
 
 #top-frame {
-    height: 250px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 30rem;
 }
 
 #card-holder {
-    height: 250px;
-    display: inline-block;
-    /*float: left;*/
+    height: 30rem;
 }
 
 .card {
-    height: 250px;
-    /*width: 195px;*/
-    font-size: 3rem;
+    height: 30rem;
+    font-size: 4rem;
     background-color: white;
     text-align: center;
     padding-top: 3rem;
 }
 
 #feedback {
-    font-size: 3rem;
+    font-size: 4rem;
     background-color: white;
-    /*width: 195px;*/
-    height: 250px;
-    /*float: right;*/
+    height: 30rem;
 }
 
-button {
+button  {
     color: white;
     background-color: rgb(41, 143, 204);
     border: none;
-    /*height: 75px;*/
-    /*width: 75px;*/
+    padding: 2rem 2rem;
     margin: 0px;
     margin-top: 5px;
     margin-right: 1px;
@@ -50,13 +42,6 @@ button {
 
 #output {
     border-top-style: solid;
-    /*width: 100px;*/
-    /*margin-left: auto;
-    margin-right: auto;*/
-}
-
-.operations {
-    background-color: rgb(128, 57, 123);
 }
 
 #enter {
@@ -67,10 +52,7 @@ button {
     background-color: rgb(16, 124, 16);
 }
 
-
-
 .num-field {
-    /*width: 100px;*/
     margin-right: 50px;
     margin-left: 50px;
     padding-left: 25px;
