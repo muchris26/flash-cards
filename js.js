@@ -16,16 +16,19 @@ var timing = 250;
         bottomNum = Math.floor(Math.random() * answer);
         topNum = answer + bottomNum;
         $('#top-num').text(topNum);
-        $('#bottom-num').text(bottomNum);
+        $('#bottom-num').text("-   " + bottomNum);
         $('.card').show(500);
     }
     function checkAnswer() {
+
+        $('#feedback').fadeIn(500);
         if (parseInt(input) === answer) {
             $('#feedback').text('You got it right!');
         }
         else {
             $('#feedback').text('You got it wrong.');
         }
+        $('#feedback').fadeOut(2000);
         generateQuestion();
         input = '';
         $('#output').text(input);
@@ -36,10 +39,13 @@ var timing = 250;
     }
 
     generateQuestion();
+    $('#feedback').hide();
 
     $('#clear').click(function() {
-        clearSum();
-        enterPress = false;
+
+        input = '';
+        $('#output').text(input);
+
         animateButton($("#clear"));
     });
     $('#enter').click(function() {
@@ -106,7 +112,9 @@ var timing = 250;
 
         $('#keypressOutput').attr("value", event.which);
         if (event.which === 8 || event.which === 46) {
-            clearSum();
+
+            input = '';
+            $('#output').text(input);
 
             animateButton($("#clear"));
         }
