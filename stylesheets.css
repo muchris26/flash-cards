@@ -1,0 +1,69 @@
+body {
+  background-color: rgb(20, 29, 36);
+  font-family: "calibri";
+}
+h1 {
+  color: rgb(41, 143, 204);
+}
+#top-frame {
+    height: 250px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#card-holder{
+    height: 250px;
+    display: inline-block;
+    float: left;
+
+}
+.card {
+    height: 250px;
+    width: 195px;
+    font-size: 2.5em;
+    background-color: white;
+    text-align: center;
+}
+#feedback {
+    font-size: 2.5em;
+    background-color: white;
+    width: 195px;
+    height: 250px;
+    float: right;
+}
+button {
+  color: white;
+  background-color: rgb(41, 143, 204);
+  border: none;
+  height: 75px;
+  width: 75px;
+  margin: 0px;
+  margin-top: 5px;
+  margin-right: 1px;
+  font-size: 2.5em;
+}
+#output {
+    border-top-style: solid;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.operations {
+  background-color: rgb(128, 57, 123);
+}
+.enter {
+  background-color: rgb(204, 0, 0);
+}
+.clear {
+  background-color: rgb(16, 124, 16);
+}
+button:active {
+  color: blue;
+  background-color: rgb(128, 57, 123);
+}
+button:hover {
+  background-color: grey;
+}
+.calc {
+
+}
