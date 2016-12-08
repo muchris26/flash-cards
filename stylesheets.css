@@ -1,68 +1,74 @@
 body {
-  background-color: rgb(20, 29, 36);
-  font-family: "calibri";
+    background-color: rgb(20, 29, 36);
+    font-family: "calibri";
 }
+
 h1 {
-  color: rgb(41, 143, 204);
+    color: rgb(41, 143, 204);
 }
+
 #top-frame {
     height: 250px;
     margin-left: auto;
     margin-right: auto;
 }
-#card-holder{
+
+#card-holder {
     height: 250px;
     display: inline-block;
     /*float: left;*/
-
 }
+
 .card {
     height: 250px;
     /*width: 195px;*/
-    font-size: 2.5em;
+    font-size: 3rem;
     background-color: white;
     text-align: center;
+    padding-top: 3rem;
 }
+
 #feedback {
-    font-size: 2.5em;
+    font-size: 3rem;
     background-color: white;
     /*width: 195px;*/
     height: 250px;
     /*float: right;*/
 }
+
 button {
-  color: white;
-  background-color: rgb(41, 143, 204);
-  border: none;
-  /*height: 75px;*/
-  /*width: 75px;*/
-  margin: 0px;
-  margin-top: 5px;
-  margin-right: 1px;
-  font-size: 2.5em;
+    color: white;
+    background-color: rgb(41, 143, 204);
+    border: none;
+    /*height: 75px;*/
+    /*width: 75px;*/
+    margin: 0px;
+    margin-top: 5px;
+    margin-right: 1px;
+    font-size: 3rem;
 }
+
 #output {
     border-top-style: solid;
     /*width: 100px;*/
     /*margin-left: auto;
     margin-right: auto;*/
 }
+
 .operations {
-  background-color: rgb(128, 57, 123);
+    background-color: rgb(128, 57, 123);
 }
+
 #enter {
-  background-color: rgb(204, 0, 0);
+    background-color: rgb(204, 0, 0);
 }
+
 #clear {
-  background-color: rgb(16, 124, 16);
+    background-color: rgb(16, 124, 16);
 }
-button:active {
-  color: blue;
-  background-color: rgb(128, 57, 123);
-}
-button:hover {
-  background-color: grey;
-}
+
+
+
 .num-field {
     /*width: 100px;*/
     margin-right: 50px;
