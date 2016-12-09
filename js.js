@@ -155,12 +155,12 @@ $(document).ready(function()
     });
     $('#2').click(function()
     {
-        updateInput('1');
+        updateInput('2');
         animateButton($("#2"));
     });
     $('#3').click(function()
     {
-        updateInput('1');
+        updateInput('3');
         animateButton($("#3"));
     });
     $('#4').click(function()
