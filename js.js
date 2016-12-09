@@ -96,14 +96,14 @@ $(document).ready(function()
     $('#question-number').text("Question: " + qNumber + "/" + winNumber);
 
     // Update CSS to display size
-    $('#top-frame').height(high * 0.5);
-    $('#card-holder').height(high * 0.5);
-    $('#feedback').height(high * 0.5);
-    $('#feedback-holder').height(high * 0.5);
-    $('.card').css("font-size", (high * 0.0075) + 'rem');
-    $('#feedback-card').css("font-size", (high * 0.0075) + 'rem');
+    // $('#top-frame').height(high * 0.5);
+    // $('#card-holder').height(high * 0.5);
+    // $('#feedback').height(high * 0.5);
+    // $('#feedback-holder').height(high * 0.5);
+    // $('.card').css("font-size", (high * 0.0075) + 'rem');
+    // $('#feedback-card').css("font-size", (high * 0.0075) + 'rem');
     // $('.card').css("padding-top", '200px');
-    $('.card').css("padding-bottom", (high * 0.0075) + 'rem');
+    // $('.card').css("padding-bottom", (high * 0.0075) + 'rem');
     // $('.card').height('100%');
 
 
