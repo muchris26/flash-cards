@@ -8,25 +8,27 @@ h1 {
 }
 
 #top-frame {
-    height: 30rem;
+    /*height: 30rem;*/
 }
 
 #card-holder {
-    height: 30rem;
+    /*height: 30rem;*/
 }
 
 .card {
-    height: 30rem;
+    height: 100%;
     font-size: 4rem;
     background-color: white;
     text-align: center;
     padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
-#feedback {
+#feedback-card {
     font-size: 4rem;
     background-color: white;
-    height: 30rem;
+    height: 100%;
+    /*height: 30rem;*/
 }
 
 button  {
@@ -38,6 +40,7 @@ button  {
     margin-top: 5px;
     margin-right: 1px;
     font-size: 3rem;
+    height: 8rem;
 }
 
 #output {
@@ -58,4 +61,10 @@ button  {
     padding-left: 25px;
     padding-right: 25px;
     text-align: right;
+}
+#time-per-question {
+    font-size: 3rem;
+}
+.debug-info {
+    color: white;
 }
