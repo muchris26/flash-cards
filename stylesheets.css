@@ -3,6 +3,23 @@ body {
     font-family: "calibri", "Helvetica";
 }
 
+#splash {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-color: rgb(20, 29, 36);
+}
+#splash-message {
+
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding-top: 15%;
+}
+
 h1 {
     color: rgb(41, 143, 204);
 }

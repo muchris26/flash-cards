@@ -45,24 +45,32 @@ $(document).ready(function()
         {
             if (qNumber >= winNumber)
             {
-                secondsPerQuestion = ((Date.now() - timeStart) / (qNumber - 1)) / 1000;
+                secondsPerQuestion = ((Date.now() - timeStart) / (qNumber)) / 1000;
                 $('#question-number').text("Question: " + qNumber + "/" + winNumber);
-                $('#feedback').text('You win! Press Enter to Play Again.');
+
+                $('#time-per-question').text("Time/Q: " + secondsPerQuestion.toFixed(2) + " seconds");
+                $('#feedback').text('Press Enter to Play Again.');
+                $('#splash').css("background-color", "rgb(41, 143, 204)");
+                $('#splash').css("z-index", "1");
+                $('#splash-message').html("<p>You Won!  Great Job!  Click the screen to continue.</p><p>Your time per question was " + secondsPerQuestion.toFixed(2) + " seconds.");
+
                 qNumber = 0;
             }
             else {
 
-                qNumber++;
                 $('#feedback').text('You got it right!');
-                secondsPerQuestion = ((Date.now() - timeStart) / (qNumber - 1)) / 1000;
+                secondsPerQuestion = ((Date.now() - timeStart) / (qNumber)) / 1000;
+
+                qNumber++;
                 $('#question-number').text("Question: " + qNumber + "/" + winNumber);
                 $('#time-per-question').text("Time/Q: " + secondsPerQuestion.toFixed(2) + " seconds");
 
                 $('#feedback').fadeOut(2000);
                 generateQuestion();
-                input = '';
-                $('#output').text(input);
             }
+
+            input = '';
+            $('#output').text(input);
         }
         else
         {
@@ -86,6 +94,7 @@ $(document).ready(function()
         timeStart = Date.now();
         qNumber = 1;
         $('#question-number').text("Question: " + qNumber + "/" + winNumber);
+        $('#feedback').empty();
 
     }
 
@@ -106,6 +115,13 @@ $(document).ready(function()
     // $('.card').css("padding-bottom", (high * 0.0075) + 'rem');
     // $('.card').height('100%');
 
+
+    $("#splash").click(function() {
+
+        $('#splash').css("background-color", "rgb(20, 29, 36)");
+        $('#splash').css("z-index", "-1");
+        $('#splash-message').empty();
+    });
 
     $('#clear').click(function()
     {
