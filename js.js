@@ -6,9 +6,10 @@ $(document).ready(function()
     var input = '';
     var timing = 50;
     var qNumber = 0;
-    var winNumber = 20;
+    var winNumber = 2;
     var TimeStart = 0;
     var TimeRound = 0;
+    var mathType = "sub";
 
     var high = window.outerHeight;
     var wide = window.outerWidth;
@@ -26,20 +27,83 @@ $(document).ready(function()
         }, timing);
     }
 
-    function generateQuestion()
-    {
-        $('.card').hide(250);
+    function questionType() {
+        if (mathType === "add") {
+            $("#question-type").text("Addition");
+        }
+        else if (mathType === "sub") {
+            $("#question-type").text("Subtraction");
+        }
+
+        else if (mathType === "mul") {
+            $("#question-type").text("Multiplication");
+        }
+
+        else if (mathType === "div") {
+            $("#question-type").text("Division");
+        }
+    }
+
+    function subQuestion() {
         answer = Math.floor(Math.random() * 10);
         bottomNum = Math.floor(Math.random() * answer);
         topNum = answer + bottomNum;
+        return [answer, bottomNum, topNum];
+    }
+
+    function addQuestion() {
+        topNum = Math.floor(Math.random() * 10);
+        bottomNum = Math.floor(Math.random() * 10);
+        answer = topNum + bottomNum;
+        return [answer, bottomNum, topNum];
+    }
+
+    function mulQuestion() {
+        topNum = Math.floor(Math.random() * 10);
+        bottomNum = Math.floor(Math.random() * 10);
+        answer = topNum * bottomNum;
+        return [answer, bottomNum, topNum];
+    }
+
+    function divQuestion() {
+        bottomNum = Math.floor(Math.random() * 10);
+        answer = Math.floor(Math.random() * 10);
+        topNum = answer * bottomNum;
+        return [answer, bottomNum, topNum];
+    }
+
+    function generateQuestion()
+    {
+        var sign = '';
+        $('.card').hide(250);
+        if (mathType === 'sub') {
+            q = subQuestion();
+            sign = "-   ";
+        }
+        else if (mathType === 'add') {
+            q = addQuestion();
+            sign = "+   ";
+        }
+        else if (mathType === 'mul') {
+            q = mulQuestion();
+            sign = "x   ";
+        }
+        else if (mathType === 'div') {
+            q = divQuestion();
+            sign = "/   ";
+        }
+        
+        answer = q[0];
+        bottomNum = q[1];
+        topNum = q[2];
         $('#top-num').text(topNum);
-        $('#bottom-num').text("-   " + bottomNum);
+
+        $('#bottom-num').text(sign + bottomNum);
         $('.card').show(250);
     }
 
     function checkAnswer()
     {
-
         $('#feedback').fadeIn(500);
         if (parseInt(input) === answer)
         {
@@ -49,22 +113,18 @@ $(document).ready(function()
                 $('#question-number').text("Question: " + qNumber + "/" + winNumber);
 
                 $('#time-per-question').text("Time/Q: " + secondsPerQuestion.toFixed(2) + " seconds");
-                $('#feedback').text('Press Enter to Play Again.');
                 $('#splash').css("background-color", "rgb(41, 143, 204)");
                 $('#splash').css("z-index", "1");
                 $('#splash-message').html("<p>You Won!  Great Job!  Click the screen to continue.</p><p>Your time per question was " + secondsPerQuestion.toFixed(2) + " seconds.");
-
-                qNumber = 0;
+                restartGame();
             }
             else {
 
                 $('#feedback').text('You got it right!');
                 secondsPerQuestion = ((Date.now() - timeStart) / (qNumber)) / 1000;
-
                 qNumber++;
                 $('#question-number').text("Question: " + qNumber + "/" + winNumber);
                 $('#time-per-question').text("Time/Q: " + secondsPerQuestion.toFixed(2) + " seconds");
-
                 $('#feedback').fadeOut(2000);
                 generateQuestion();
             }
@@ -89,7 +149,6 @@ $(document).ready(function()
 
     function startGame()
     {
-
         generateQuestion();
         timeStart = Date.now();
         qNumber = 1;
@@ -98,24 +157,54 @@ $(document).ready(function()
 
     }
 
-    // Initialize game
-    // $('#feedback').hide();
-    // $('.debug-info').html("<p>Width: " + wide + ' Height: ' + high + "</p>");
-    $('#feedback').text("Press Enter to Begin");
-    $('#question-number').text("Question: " + qNumber + "/" + winNumber);
 
-    // Update CSS to display size
-    // $('#top-frame').height(high * 0.5);
-    // $('#card-holder').height(high * 0.5);
-    // $('#feedback').height(high * 0.5);
-    // $('#feedback-holder').height(high * 0.5);
-    // $('.card').css("font-size", (high * 0.0075) + 'rem');
-    // $('#feedback-card').css("font-size", (high * 0.0075) + 'rem');
-    // $('.card').css("padding-top", '200px');
-    // $('.card').css("padding-bottom", (high * 0.0075) + 'rem');
-    // $('.card').height('100%');
+    function restartGame() {
+        $('#feedback').text('Press Enter to Play Again.');     
+        qNumber = 0;
+        $('#question-number').text("Question: " + qNumber + "/" + winNumber);   
+        
+        $('#top-num').empty();
+        $('#bottom-num').empty();
+    }
 
+//Initialize game
+    function initializeGame() {
+        // $('#feedback').hide();
+        // $('.debug-info').html("<p>Width: " + wide + ' Height: ' + high + "</p>");
+        qNumber = 0;
+        $('#feedback').text("Press Enter to Begin");
+        questionType();
+        $('#question-number').text("Question: " + qNumber + "/" + winNumber);
+        $('#settings-tab').hide();
+        $('#top-num').empty();
+        $('#bottom-num').empty();
+    }
 
+    initializeGame();
+
+// Controls for settings tab
+    $("#addition").click(function() {
+        mathType = 'add';
+        initializeGame();
+    });
+    $("#subtraction").click(function() {
+        mathType = 'sub';
+        initializeGame();
+    });
+    $("#multiplication").click(function() {
+        mathType = 'mul';
+        initializeGame();
+    });
+    $("#division").click(function() {
+        mathType = 'div';
+        initializeGame();
+    });
+
+    $('#settings-btn').click(function() {
+        $('#settings-tab').slideToggle(250);
+    });
+
+// Splash screen control
     $("#splash").click(function() {
 
         $('#splash').css("background-color", "rgb(20, 29, 36)");
@@ -123,6 +212,7 @@ $(document).ready(function()
         $('#splash-message').empty();
     });
 
+// Controls for the number board
     $('#clear').click(function()
     {
 
@@ -214,6 +304,7 @@ $(document).ready(function()
         updateInput('0');
         animateButton($("#0"));
     });
+// Controls for controlling number board with keyboard
     $('body').keyup(function(event)
     {
 
@@ -315,79 +406,3 @@ $(document).ready(function()
         }
     });
 });
-
-// var sum = null;
-// var mem = null;
-// var oper = null;
-// var enterPress = false;
-//
-
-//
-// function presentOutput(x) {
-//     if (x === null) {
-//         $('#output').attr("value", 0);
-//     }
-//     else {
-//         $('#output').attr("value", x);
-//     }
-//     $('#sumOutput').attr("value", sum);
-//     $('#memOutput').attr("value", mem);
-//     $('#operOutput').attr("value", oper);
-//     $('#enterOutput').attr("value", enterPress);
-// };
-// presentOutput(sum);
-//
-// function updateOper(val) {
-//     if (enterPress === true) {
-//         mem = null;
-//         enterPress = false;
-//         presentOutput(sum)
-//     }
-//     else {
-//         updateSum();
-//         mem = null;
-//         presentOutput(sum);
-//     }
-//
-//     oper = val;
-// };
-// function updateInput(val) {
-//     if (mem === null) {
-//         mem = val;
-//
-//     }
-//     else {
-//         mem = mem + val;
-//
-//     }
-//     presentOutput(mem);
-// };
-// function clearSum() {
-//     sum = null;
-//     mem = null;
-//     oper = null;
-//     presentOutput(sum);
-// };
-// function updateSum() {
-//     if (mem === null) {
-//         sum = sum;
-//     }
-//     else if (sum === null) {
-//         sum = parseInt(mem);
-//     }
-//     else {
-//         if (oper === 'addi') {
-//             sum = sum + parseInt(mem);
-//         }
-//         else if (oper === 'diff') {
-//             sum = sum - parseInt(mem);
-//         }
-//         else if (oper === 'prod') {
-//             sum = sum * parseInt(mem);
-//         }
-//         else if (oper === 'divi') {
-//             sum = sum / parseInt(mem);
-//         }
-//     }
-//     presentOutput(sum);
-// }

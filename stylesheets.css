@@ -3,6 +3,25 @@ body {
     font-family: "calibri", "Helvetica";
 }
 
+.btn {
+    border-radius: 0;
+    margin: 5px 15px 5px 5px;
+    font-size: 1em;
+    width: 6.5em;
+}
+
+#settings-btn {
+    float: right;
+    font-size: 1.5em;
+}
+
+#settings-tab {
+    z-index: 1;
+    position: absolute;
+    float: right;
+    background-color: rgb(41, 143, 204);
+}
+
 #splash {
     position: fixed;
     height: 100%;
@@ -12,12 +31,12 @@ body {
 }
 #splash-message {
 
-    font-size: 5rem;
+    font-size: 4rem;
     color: white;
     text-align: center;
     margin-left: 25%;
     margin-right: 25%;
-    padding-top: 15%;
+    padding-top: 10%;
 }
 
 h1 {
