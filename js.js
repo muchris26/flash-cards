@@ -6,7 +6,7 @@ $(document).ready(function()
     var input = '';
     var timing = 50;
     var qNumber = 0;
-    var winNumber = 2;
+    var winNumber = 20;
     var TimeStart = 0;
     var TimeRound = 0;
     var mathType = "sub";
